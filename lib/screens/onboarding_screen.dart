@@ -74,7 +74,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                 ),
                 Container(
-                  height: 530.0,
+                  height: 520.0,
                   child: PageView(
                     physics: ClampingScrollPhysics(),
                     controller: _pageController,
