@@ -173,6 +173,31 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ? Expanded(
                         child: Align(
                           alignment: FractionalOffset.bottomRight,
+                          child: FlatButton(
+                            onPressed: () {
+                              _pageController.nextPage(
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.ease,
+                              );
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  'Next',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 22.0),
+                                ),
+                                SizedBox(width: 10.0),
+                                Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.white,
+                                  size: 30.0,
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                       )
                     : Text(''),
@@ -181,6 +206,28 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
         ),
       ),
+      bottomSheet: _currentPage == _numPages - 1
+          ? Container(
+              height: 100.0,
+              width: double.infinity,
+              color: Colors.white,
+              child: GestureDetector(
+                onTap: () => print('Get started'),
+                child: Center(
+                  child: Padding(
+                    padding: EdgeInsets.only(bottom: 30.0),
+                    child: Text(
+                      'Get started',
+                      style: TextStyle(
+                          color: Color(0xFF5B16D0),
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ),
+            )
+          : Text(''),
     );
   }
 }
